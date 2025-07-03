@@ -106,8 +106,10 @@
     <header class="bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html"> <img src="Logo1.png" alt="Your Business Logo" class="h-20 w-auto mr-3 rounded-md">
-                </a> <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
+                <a href="index.html">
+                    <img src="Logo1.png" alt="Your Business Logo" class="h-20 w-auto mr-3 rounded-md">
+                </a>
+                <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
             </div>
             <nav class="flex items-center space-x-4">
                 <ul class="flex space-x-4">
@@ -196,16 +198,25 @@
                 navContact: 'Контакт',
                 aboutTitle: 'За нашиот бизнис',
                 aboutParagraph1: 'Добредојдовте во [Име на вашиот бизнис]! Ние сме посветени на обезбедување висококвалитетни [Вашата индустрија/услуги] на нашите ценети клиенти. Со долгогодишно искуство во областа, нашиот тим е посветен на извонредност и задоволство на клиентите. Ние веруваме во градење силни односи и испорачување резултати што ги надминуваат очекувањата.',
-                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнисите со иновативни решенија" или "да обезбедиме сигурни услуги што го поедноставуваат вашиот живот"]. Се гордееме со нашиот [споменете ги клучните вредности, на пр., "интегритет, иновации и пристап ориентиран кон клиентите"].',
-                footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
+                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнесите со иновативни решенија" или "да обезбедиме сигурни услуги што го поедноставуваат вашиот живот"]. Се гордееме со нашиот [споменете ги клучните вредности, на пр., "интегритет, иновации и пристап ориентиран кон клиентите"].',
+                footerCopyright: '&copy; 2025 Име на вашиот бизnis. Сите права задржани.',
                 footerPrivacy: 'Политика за приватност',
                 footerTerms: 'Услови за користење'
             }
         };
 
+        // Function to set the language
         function setLanguage(lang) {
+            // Update the HTML lang attribute
             document.documentElement.lang = lang;
+
+            // Save the selected language to localStorage
+            localStorage.setItem('preferredLanguage', lang); // <--- ADDED LINE
+
+            // Update the page title
             document.title = translations[lang].pageTitle;
+
+            // Update the text content of the language button
             currentLangDisplay.textContent = lang.toUpperCase();
 
             translatableElements.forEach(element => {
@@ -237,8 +248,16 @@
             });
         });
 
+        // Set default language on page load
         document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en');
+            // Check if a preferred language is stored in localStorage
+            const storedLang = localStorage.getItem('preferredLanguage'); // <--- ADDED LINE
+
+            if (storedLang) { // <--- ADDED LINE
+                setLanguage(storedLang); // Use the stored language // <--- ADDED LINE
+            } else { // <--- ADDED LINE
+                setLanguage('en'); // Default to English if no language is stored // <--- ADDED LINE
+            } // <--- ADDED LINE
         });
     </script>
 </body>
