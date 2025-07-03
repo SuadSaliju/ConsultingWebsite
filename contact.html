@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate-key="pageTitle">Your Business Name - Contact</title>
+    <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for better readability and aesthetics */
@@ -106,7 +106,7 @@
     <header class="bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
             <div class="flex items-center">
-                <img src="Logo1.png" alt="Your Business Logo" class="h-30 w-auto mr-6">
+                <img src="Logo1.png" alt="Your Business Logo" class="h-10 w-auto mr-3 rounded-md">
                 <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
             </div>
             <nav class="flex items-center space-x-4">
@@ -167,6 +167,7 @@
     </footer>
 
     <script>
+        // Language translation logic - same as in index.html
         const contactForm = document.getElementById('contactForm');
         const messageBox = document.getElementById('messageBox');
         const languageButton = document.getElementById('languageButton');
@@ -193,7 +194,7 @@
                 footerPrivacy: 'Privacy Policy',
                 footerTerms: 'Terms of Service'
             },
-            sq: {
+            sq: { // Albanian translations
                 pageTitle: 'Emri i Biznesit Tuaj - Kontakti',
                 businessName: 'Emri i Biznesit Tuaj',
                 navAbout: 'Rreth Nesh',
@@ -206,12 +207,12 @@
                 formMessageLabel: 'Mesazhi:',
                 formSubmitBtn: 'Dërgo Mesazh',
                 formSuccessMessage: 'Faleminderit për mesazhin tuaj! Ne do t\'ju kthejmë përgjigje së shpejti.',
-                formEmptyFields: 'Ju lutemi plotësoni të gjitha fushat.',
+                formEmptyFields: 'Ju lutem plotësoni të gjitha fushat.',
                 footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
                 footerPrivacy: 'Politika e Privatësisë',
                 footerTerms: 'Kushtet e Shërbimit'
             },
-            mk: {
+            mk: { // Macedonian translations
                 pageTitle: 'Име на вашиот бизнис - Контакт',
                 businessName: 'Име на вашиот бизнис',
                 navAbout: 'За нас',
@@ -247,16 +248,13 @@
                 }
             });
             if (messageBox.style.display === 'block') {
-                const currentMessageKey = messageBox.querySelector('span').getAttribute('data-translate-key');
-                if (currentMessageKey === 'formSuccessMessage') {
-                    messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formSuccessMessage;
-                } else if (currentMessageKey === 'formEmptyFields') {
-                    messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formEmptyFields;
-                }
+                 const currentMessageSpan = messageBox.querySelector('span');
+                 const currentMessageKey = currentMessageSpan.getAttribute('data-translate-key');
+                 if (translations[lang][currentMessageKey]) {
+                     currentMessageSpan.textContent = translations[lang][currentMessageKey];
+                 }
             }
         }
-
-        const languageDropdown = document.querySelector('.language-dropdown');
 
         languageDropdown.addEventListener('mouseover', function() {
             languageDropdownContent.classList.add('show');
@@ -274,7 +272,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en');
+            setLanguage('en'); // Default to English
         });
 
         contactForm.addEventListener('submit', function(event) {
