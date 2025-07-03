@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles for better readability and aesthetics */
         body {
@@ -112,52 +111,17 @@
             border-radius: 0.5rem;
             text-decoration: none;
             font-weight: bold;
-            display: flex; /* Use flexbox for icon and text alignment */
-            align-items: center;
-            justify-content: center;
-            opacity: 0; /* Hidden by default with opacity for fade */
-            visibility: hidden; /* Hidden by default with visibility for smooth transition */
-            transform: translateY(20px); /* Start slightly below for slide-up effect */
-            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            display: none; /* Hidden by default */
+            transition: background-color 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1); /* Apply pulse animation */
         }
-
-        /* Show state for the button */
+        .scroll-to-top:hover {
+            background-color: #2563eb;
+        }
         .scroll-to-top.show {
+            display: block;
             opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Icon specific styles */
-        .scroll-to-top i {
-            opacity: 0; /* Start hidden */
-            transform: translateY(5px); /* Start slightly down */
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        /* Icon animation on hover */
-        .scroll-to-top:hover i {
-            opacity: 1; /* Fade in */
-            transform: translateY(0); /* Move up to original position */
-        }
-
-        /* Text animation on hover */
-        .scroll-to-top:hover span {
-            transform: translateX(5px); /* Move text slightly to the right */
-            transition: transform 0.3s ease;
-        }
-
-        /* Keyframes for the pulse animation */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
         }
     </style>
 </head>
@@ -269,9 +233,7 @@
         </div>
     </footer>
 
-    <a href="#" id="scrollToTopBtn" class="scroll-to-top" data-translate-key="goTopPage">
-        <i class="fas fa-arrow-up mr-2"></i> <span data-translate-key="goTopPageText">Go Top Page</span>
-    </a>
+    <a href="#" id="scrollToTopBtn" class="scroll-to-top" data-translate-key="goTopPage">Go Top Page</a>
 
     <script>
         // Get the contact form and message box elements
@@ -315,8 +277,7 @@
                 footerCopyright: '&copy; 2025 Your Business Name. All rights reserved.',
                 footerPrivacy: 'Privacy Policy',
                 footerTerms: 'Terms of Service',
-                goTopPage: 'Go Top Page',
-                goTopPageText: 'Go Top Page'
+                goTopPage: 'Go Top Page'
             },
             sq: { // Albanian translations
                 pageTitle: 'Emri i Biznesit Tuaj - Faqja Zyrtare',
@@ -348,8 +309,7 @@
                 footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
                 footerPrivacy: 'Politika e Privatësisë',
                 footerTerms: 'Kushtet e Shërbimit',
-                goTopPage: 'Kthehu lart',
-                goTopPageText: 'Kthehu lart'
+                goTopPage: 'Kthehu lart'
             },
             mk: { // Macedonian translations
                 pageTitle: 'Име на вашиот бизнис - Официјална веб-страница',
@@ -362,8 +322,7 @@
                 heroButton: 'Добијте бесплатна понуда',
                 aboutTitle: 'За нашиот бизнис',
                 aboutParagraph1: 'Добредојдовте во [Име на вашиот бизнис]! Ние сме посветени на обезбедување висококвалитетни [Вашата индустрија/услуги] на нашите ценети клиенти. Со долгогодишно искуство во областа, нашиот тим е посветен на извонредност и задоволство на клиентите. Ние веруваме во градење силни односи и испорачување резултати што ги надминуваат очекувањата.',
-                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнесе
-                со иновативни решенија" или "да обезбедиме сигурни услуги што го поедноставуваат вашиот живот"]. Се гордееме со нашиот [споменете ги клучните вредности, на пр., "интегритет, иновации и пристап ориентиран кон клиентите"].',
+                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнисите со иновативни решенија" или "да обезбедиме сигурни услуги што го поедноставуваат вашиот живот"]. Се гордееме со нашиот [споменете ги клучните вредности, на пр., "интегритет, иновации и пристап ориентиран кон клиентите"].',
                 servicesTitle: 'Нашите услуги',
                 service1Title: 'Наслов на услуга 1',
                 service1Desc: 'Краток опис на вашата прва услуга. Истакнете ги нејзините придобивки и што им нуди на вашите клиенти.',
@@ -382,8 +341,7 @@
                 footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
                 footerPrivacy: 'Политика за приватност',
                 footerTerms: 'Услови за користење',
-                goTopPage: 'Оди на врвот',
-                goTopPageText: 'Оди на врвот'
+                goTopPage: 'Оди на врвот'
             }
         };
 
