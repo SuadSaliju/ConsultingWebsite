@@ -28,6 +28,77 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
+         .btn-primary {
+            background-color: #3b82f6; /* Blue button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+        input, textarea {
+            border: 1px solid #cbd5e1; /* Light gray border */
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            width: 100%;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6; /* Blue border on focus */
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25); /* Light blue shadow on focus */
+        }
+        .message-box {
+            background-color: #dbeafe; /* Light blue background */
+            color: #1e40af; /* Dark blue text */
+            border: 1px solid #93c5fd; /* Blue border */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none; /* Hidden by default */
+        }
+        /* Styles for language selector */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .language-dropdown-content {
+            display: block; /* Always block, control visibility with opacity/max-height */
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 0.5rem;
+            right: 0; /* Align to the right of the button */
+            top: 100%; /* Position below the button */
+            margin-top: 0.5rem;
+            overflow: hidden; /* Ensures rounded corners apply to children */
+            max-height: 0; /* Start hidden for slide effect */
+            opacity: 0; /* Start invisible for fade effect */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Transition properties */
+        }
+        .language-dropdown-content.show {
+            max-height: 200px; /* Sufficient height to show content */
+            opacity: 1;
+        }
+        .language-dropdown-content button {
+            color: black;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: #f9f9f9;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .language-dropdown-content button:hover {
+            background-color: #e2e8f0; /* Light gray on hover */
+        }
         /* Include any other necessary styles from your original file if they apply globally or to this page specifically */
     </style>
 </head>
