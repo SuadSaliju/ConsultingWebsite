@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Business Name - Official Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better readability and aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light gray background */
+            color: #334155; /* Darker text for contrast */
+        }
+        .container {
+            max-width: 960px; /* Max width for content */
+            margin: 0 auto; /* Center the container */
+            padding: 1rem;
+        }
+        .section-title {
+            color: #1e293b; /* Darker blue for titles */
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* Blue button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+        input, textarea {
+            border: 1px solid #cbd5e1; /* Light gray border */
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            width: 100%;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6; /* Blue border on focus */
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25); /* Light blue shadow on focus */
+        }
+        .message-box {
+            background-color: #dbeafe; /* Light blue background */
+            color: #1e40af; /* Dark blue text */
+            border: 1px solid #93c5fd; /* Blue border */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2">Your Business Name</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2">About Us</a></li>
+                    <li><a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2">Services</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 text-center rounded-b-lg mb-8">
+        <div class="container">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Welcome to Your Business Name</h2>
+            <p class="text-lg md:text-xl mb-8">Providing exceptional solutions for your needs.</p>
+            <a href="#contact" class="btn-primary inline-block text-lg font-semibold shadow-lg hover:shadow-xl">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-12">
+        <div class="container card">
+            <h3 class="text-3xl font-bold section-title mb-6">About Our Business</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Welcome to [Your Business Name]! We are dedicated to providing high-quality [Your Industry/Services] to our valued customers.
+                With years of experience in the field, our team is committed to excellence and customer satisfaction.
+                We believe in building strong relationships and delivering results that exceed expectations.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                Our mission is to [Your Mission Statement, e.g., "empower businesses with innovative solutions" or "provide reliable services that simplify your life"].
+                We pride ourselves on our [mention key values, e.g., "integrity, innovation, and customer-centric approach"].
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-gray-50">
+        <div class="container card">
+            <h3 class="text-3xl font-bold section-title mb-6">Our Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Service Title 1</h4>
+                    <p class="text-gray-600">A brief description of your first service. Highlight its benefits and what it offers to your clients.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Service Title 2</h4>
+                    <p class="text-gray-600">Another brief description of your second service. Explain how it solves a problem or adds value.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Service Title 3</h4>
+                    <p class="text-gray-600">Description of your third service. Keep it concise and engaging for potential customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12">
+        <div class="container card">
+            <h3 class="text-3xl font-bold section-title mb-6">Contact Us for Offers</h3>
+            <p class="text-gray-700 mb-6">Have a question or want to discuss a potential project? Fill out the form below and we'll get back to you as soon as possible!</p>
+
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" name="name" required class="focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="email" name="email" required class="focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+                    <textarea id="message" name="message" rows="5" required class="focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-full md:w-auto font-semibold">Send Message</button>
+            </form>
+
+            <!-- Message box for form submission feedback -->
+            <div id="messageBox" class="message-box">
+                Thank you for your message! We will get back to you shortly.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
+        <div class="container text-center">
+            <p>&copy; 2025 Your Business Name. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a> |
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Get the contact form and message box elements
+        const contactForm = document.getElementById('contactForm');
+        const messageBox = document.getElementById('messageBox');
+
+        // Add an event listener for form submission
+        contactForm.addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior (which would reload the page)
+            event.preventDefault();
+
+            // Get the values from the form fields
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Basic client-side validation
+            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                // If any field is empty, show an error message (or use a more sophisticated validation library)
+                messageBox.textContent = 'Please fill in all fields.';
+                messageBox.style.backgroundColor = '#fee2e2'; // Light red for error
+                messageBox.style.borderColor = '#ef4444'; // Red border
+                messageBox.style.color = '#dc2626'; // Dark red text
+                messageBox.style.display = 'block'; // Show the message box
+                return; // Stop the function if validation fails
+            }
+
+            // In a real-world scenario, you would send this data to a backend server
+            // For a free and simple solution, you could use services like Formspree.io or Netlify Forms
+            // which handle the backend for you. For this example, we'll just simulate success.
+
+            console.log('Form Submitted!');
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Message:', message);
+
+            // Display a success message to the user
+            messageBox.textContent = 'Thank you for your message! We will get back to you shortly.';
+            messageBox.style.backgroundColor = '#dbeafe'; // Light blue for success
+            messageBox.style.borderColor = '#93c5fd'; // Blue border
+            messageBox.style.color = '#1e40af'; // Dark blue text
+            messageBox.style.display = 'block'; // Show the message box
+
+            // Optionally, clear the form fields after submission
+            contactForm.reset();
+
+            // Hide the message box after a few seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
+        });
+    </script>
+</body>
+</html>
