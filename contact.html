@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
+    <title data-translate-key="pageTitle">Your Business Name - Contact Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for better readability and aesthetics */
@@ -106,8 +106,10 @@
     <header class="bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html"> <img src="Logo1.png" alt="Your Business Logo" class="h-20 w-auto mr-3 rounded-md">
-                </a> <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
+                <a href="index.html">
+                    <img src="Logo1.png" alt="Your Business Logo" class="h-20 w-auto mr-3 rounded-md">
+                </a>
+                <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
             </div>
             <nav class="flex items-center space-x-4">
                 <ul class="flex space-x-4">
@@ -147,169 +149,4 @@
                     <label for="message" class="block text-gray-700 text-sm font-bold mb-2" data-translate-key="formMessageLabel">Message:</label>
                     <textarea id="message" name="message" rows="5" required class="focus:ring-blue-500 focus:border-blue-500"></textarea>
                 </div>
-                <button type="submit" class="btn-primary w-full md:w-auto font-semibold" data-translate-key="formSubmitBtn">Send Message</button>
-            </form>
-
-            <div id="messageBox" class="message-box">
-                <span data-translate-key="formSuccessMessage">Thank you for your message! We will get back to you shortly.</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
-        <div class="container text-center">
-            <p data-translate-key="footerCopyright">&copy; 2025 Your Business Name. All rights reserved.</p>
-            <p class="mt-2">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerPrivacy">Privacy Policy</a> |
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerTerms">Terms of Service</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Language translation logic - same as in index.html
-        const contactForm = document.getElementById('contactForm');
-        const messageBox = document.getElementById('messageBox');
-        const languageButton = document.getElementById('languageButton');
-        const languageDropdownContent = document.getElementById('languageDropdownContent');
-        const translatableElements = document.querySelectorAll('[data-translate-key]');
-        const currentLangDisplay = document.getElementById('currentLangDisplay');
-
-        const translations = {
-            en: {
-                pageTitle: 'Your Business Name - Contact',
-                businessName: 'Your Business Name',
-                navAbout: 'About Us',
-                navServices: 'Services',
-                navContact: 'Contact',
-                contactTitle: 'Contact Us for Offers',
-                contactIntro: 'Have a question or want to discuss a potential project? Fill out the form below and we\'ll get back to you as soon as possible!',
-                formNameLabel: 'Name:',
-                formEmailLabel: 'Email:',
-                formMessageLabel: 'Message:',
-                formSubmitBtn: 'Send Message',
-                formSuccessMessage: 'Thank you for your message! We will get back to you shortly.',
-                formEmptyFields: 'Please fill in all fields.',
-                footerCopyright: '&copy; 2025 Your Business Name. All rights reserved.',
-                footerPrivacy: 'Privacy Policy',
-                footerTerms: 'Terms of Service'
-            },
-            sq: { // Albanian translations
-                pageTitle: 'Emri i Biznesit Tuaj - Kontakti',
-                businessName: 'Emri i Biznesit Tuaj',
-                navAbout: 'Rreth Nesh',
-                navServices: 'Shërbimet',
-                navContact: 'Kontakti',
-                contactTitle: 'Na Kontaktoni për Oferta',
-                contactIntro: 'Keni një pyetje apo dëshironi të diskutoni një projekt të mundshëm? Plotësoni formularin më poshtë dhe ne do t\'ju kthejmë përgjigje sa më shpejt të jetë e mundur!',
-                formNameLabel: 'Emri:',
-                formEmailLabel: 'Email:',
-                formMessageLabel: 'Mesazhi:',
-                formSubmitBtn: 'Dërgo Mesazh',
-                formSuccessMessage: 'Faleminderit për mesazhin tuaj! Ne do t\'ju kthejmë përgjigje së shpejti.',
-                formEmptyFields: 'Ju lutem plotësoni të gjitha fushat.',
-                footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
-                footerPrivacy: 'Politika e Privatësisë',
-                footerTerms: 'Kushtet e Shërbimit'
-            },
-            mk: { // Macedonian translations
-                pageTitle: 'Име на вашиот бизнис - Контакт',
-                businessName: 'Име на вашиот бизнис',
-                navAbout: 'За нас',
-                navServices: 'Услуги',
-                navContact: 'Контакт',
-                contactTitle: 'Контактирајте нè за понуди',
-                contactIntro: 'Имате прашање или сакате да разговарате за потенцијален проект? Пополнете го формуларот подолу и ние ќе ви одговориме што е можно поскоро!',
-                formNameLabel: 'Име:',
-                formEmailLabel: 'Е-пошта:',
-                formMessageLabel: 'Порака:',
-                formSubmitBtn: 'Испрати порака',
-                formSuccessMessage: 'Ви благодариме за вашата порака! Ќе ви одговориме наскоро.',
-                formEmptyFields: 'Ве молиме пополнете ги сите полиња.',
-                footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
-                footerPrivacy: 'Политика за приватност',
-                footerTerms: 'Услови за користење'
-            }
-        };
-
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.title = translations[lang].pageTitle;
-            currentLangDisplay.textContent = lang.toUpperCase();
-
-            translatableElements.forEach(element => {
-                const key = element.getAttribute('data-translate-key');
-                if (translations[lang][key]) {
-                    if (key === 'footerCopyright') {
-                        element.innerHTML = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-            if (messageBox.style.display === 'block') {
-                 const currentMessageSpan = messageBox.querySelector('span');
-                 const currentMessageKey = currentMessageSpan.getAttribute('data-translate-key');
-                 if (translations[lang][currentMessageKey]) {
-                     currentMessageSpan.textContent = translations[lang][currentMessageKey];
-                 }
-            }
-        }
-
-        languageDropdown.addEventListener('mouseover', function() {
-            languageDropdownContent.classList.add('show');
-        });
-
-        languageDropdown.addEventListener('mouseout', function() {
-            languageDropdownContent.classList.remove('show');
-        });
-
-        languageDropdownContent.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en'); // Default to English
-        });
-
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
-                messageBox.querySelector('span').setAttribute('data-translate-key', 'formEmptyFields');
-                messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formEmptyFields;
-                messageBox.style.backgroundColor = '#fee2e2';
-                messageBox.style.borderColor = '#ef4444';
-                messageBox.style.color = '#dc2626';
-                messageBox.style.display = 'block';
-                return;
-            }
-
-            console.log('Form Submitted!');
-            console.log('Name:', name);
-            console.log('Email:', email);
-            console.log('Message:', message);
-
-            messageBox.querySelector('span').setAttribute('data-translate-key', 'formSuccessMessage');
-            messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formSuccessMessage;
-            messageBox.style.backgroundColor = '#dbeafe';
-            messageBox.style.borderColor = '#93c5fd';
-            messageBox.style.color = '#1e40af';
-            messageBox.style.display = 'block';
-
-            contactForm.reset();
-
-            setTimeout(() => {
-                messageBox.style.display = 'none';
-            }, 5000);
-        });
-    </script>
-</body>
-</html>
+                <button type="submit" class="btn-primary w-full
