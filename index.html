@@ -101,29 +101,65 @@
             background-color: #e2e8f0; /* Light gray on hover */
         }
 
-        /* Styles for Go Top Page button */
-        #goToTopBtn {
+        /* Styles for "Go Top Page" button */
+        .scroll-to-top {
             position: fixed;
             bottom: 20px;
-            left: 20px;
-            background-color: #3b82f6; /* Blue background */
+            right: 20px;
+            background-color: #3b82f6;
             color: white;
             padding: 10px 15px;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            z-index: 1000;
-            display: none; /* Hidden by default */
+            text-decoration: none;
+            font-weight: bold;
+            display: flex; /* Use flexbox for icon and text alignment */
             align-items: center;
             justify-content: center;
-            gap: 8px; /* Space between text and icon */
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0; /* Hidden by default with opacity for fade */
+            visibility: hidden; /* Hidden by default with visibility for smooth transition */
+            transform: translateY(20px); /* Start slightly below for slide-up effect */
+            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1); /* Apply pulse animation */
         }
-        #goToTopBtn.show {
+
+        /* Show state for the button */
+        .scroll-to-top.show {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Icon specific styles */
+        .scroll-to-top i {
+            opacity: 0; /* Start hidden */
+            transform: translateY(5px); /* Start slightly down */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Icon animation on hover */
+        .scroll-to-top:hover i {
+            opacity: 1; /* Fade in */
+            transform: translateY(0); /* Move up to original position */
+        }
+
+        /* Text animation on hover */
+        .scroll-to-top:hover span {
+            transform: translateX(5px); /* Move text slightly to the right */
+            transition: transform 0.3s ease;
+        }
+
+        /* Keyframes for the pulse animation */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+       
     </style>
 </head>
 <body class="antialiased">
