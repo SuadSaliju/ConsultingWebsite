@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for better readability and aesthetics */
@@ -100,16 +99,38 @@
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
         }
+
+        /* Styles for "Go Top Page" button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3b82f6;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .scroll-to-top:hover {
+            background-color: #2563eb;
+        }
+        .scroll-to-top.show {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header Section -->
     <header class="bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
             <div class="flex items-center">
-                <!-- Logo -->
-                <img src="Logo1.png" alt="Your Business Logo" class="h-20 w-auto mr-3 rounded-md">
+                <img src="Logo1.png" alt="Your Business Logo" class="h-10 w-auto mr-3 rounded-md">
                 <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
             </div>
             <nav class="flex items-center space-x-4">
@@ -118,7 +139,6 @@
                     <li><a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navServices">Services</a></li>
                     <li><a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navContact">Contact</a></li>
                 </ul>
-                <!-- Language Selector -->
                 <div class="language-dropdown">
                     <button id="languageButton" class="btn-primary flex items-center justify-center p-2 text-sm font-semibold w-12 h-10">
                         <span id="currentLangDisplay">EN</span>
@@ -133,7 +153,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 text-center rounded-b-lg mb-8">
         <div class="container">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-translate-key="heroWelcome">Welcome to Your Business Name</h2>
@@ -142,7 +161,6 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
     <section id="about" class="py-12">
         <div class="container card">
             <h3 class="text-3xl font-bold section-title mb-6" data-translate-key="aboutTitle">About Our Business</h3>
@@ -158,22 +176,18 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-12 bg-gray-50">
         <div class="container card">
             <h3 class="text-3xl font-bold section-title mb-6" data-translate-key="servicesTitle">Our Services</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service1Title">Service Title 1</h4>
                     <p class="text-gray-600" data-translate-key="service1Desc">A brief description of your first service. Highlight its benefits and what it offers to your clients.</p>
                 </div>
-                <!-- Service 2 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service2Title">Service Title 2</h4>
                     <p class="text-gray-600" data-translate-key="service2Desc">Another brief description of your second service. Explain how it solves a problem or adds value.</p>
                 </div>
-                <!-- Service 3 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service3Title">Service Title 3</h4>
                     <p class="text-gray-600" data-translate-key="service3Desc">Description of your third service. Keep it concise and engaging for potential customers.</p>
@@ -182,7 +196,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-12">
         <div class="container card">
             <h3 class="text-3xl font-bold section-title mb-6" data-translate-key="contactTitle">Contact Us for Offers</h3>
@@ -204,14 +217,12 @@
                 <button type="submit" class="btn-primary w-full md:w-auto font-semibold" data-translate-key="formSubmitBtn">Send Message</button>
             </form>
 
-            <!-- Message box for form submission feedback -->
             <div id="messageBox" class="message-box">
                 <span data-translate-key="formSuccessMessage">Thank you for your message! We will get back to you shortly.</span>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
         <div class="container text-center">
             <p data-translate-key="footerCopyright">&copy; 2025 Your Business Name. All rights reserved.</p>
@@ -222,6 +233,8 @@
         </div>
     </footer>
 
+    <a href="#" id="scrollToTopBtn" class="scroll-to-top" data-translate-key="goTopPage">Go Top Page</a>
+
     <script>
         // Get the contact form and message box elements
         const contactForm = document.getElementById('contactForm');
@@ -230,6 +243,7 @@
         const languageDropdownContent = document.getElementById('languageDropdownContent');
         const translatableElements = document.querySelectorAll('[data-translate-key]');
         const currentLangDisplay = document.getElementById('currentLangDisplay'); // New element to display current language code
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
         // Define translations for each language
         const translations = {
@@ -262,7 +276,8 @@
                 formEmptyFields: 'Please fill in all fields.',
                 footerCopyright: '&copy; 2025 Your Business Name. All rights reserved.',
                 footerPrivacy: 'Privacy Policy',
-                footerTerms: 'Terms of Service'
+                footerTerms: 'Terms of Service',
+                goTopPage: 'Go Top Page'
             },
             sq: { // Albanian translations
                 pageTitle: 'Emri i Biznesit Tuaj - Faqja Zyrtare',
@@ -293,7 +308,8 @@
                 formEmptyFields: 'Ju lutemi plotësoni të gjitha fushat.',
                 footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
                 footerPrivacy: 'Politika e Privatësisë',
-                footerTerms: 'Kushtet e Shërbimit'
+                footerTerms: 'Kushtet e Shërbimit',
+                goTopPage: 'Kthehu lart'
             },
             mk: { // Macedonian translations
                 pageTitle: 'Име на вашиот бизнис - Официјална веб-страница',
@@ -324,7 +340,8 @@
                 formEmptyFields: 'Ве молиме пополнете ги сите полиња.',
                 footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
                 footerPrivacy: 'Политика за приватност',
-                footerTerms: 'Услови за користење'
+                footerTerms: 'Услови за користење',
+                goTopPage: 'Оди на врвот'
             }
         };
 
@@ -353,7 +370,7 @@
             // Update contact form message box based on current language
             if (messageBox.style.display === 'block') { // Only update if message box is visible
                 const currentMessageKey = messageBox.querySelector('span').getAttribute('data-translate-key');
-                messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formEmptyFields; // Use the correct key for the current message
+                // Use the correct key for the current message that was previously displayed
                 if (currentMessageKey === 'formSuccessMessage') {
                     messageBox.querySelector('span').textContent = translations[document.documentElement.lang].formSuccessMessage;
                 } else if (currentMessageKey === 'formEmptyFields') {
@@ -434,6 +451,42 @@
             setTimeout(() => {
                 messageBox.style.display = 'none';
             }, 5000); // Hide after 5 seconds
+        });
+
+        // Show/hide scroll to top button based on scroll position
+        window.addEventListener('scroll', () => {
+            // Check if the user has scrolled past a certain point (e.g., 200px)
+            if (window.scrollY > 200) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when the button is clicked
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor link behavior
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        });
+
+        // Listen for clicks on navigation links to show the scroll-to-top button
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Check if the target section is within the viewport or requires scrolling
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    // Only show the button if scrolling is likely to occur, i.e., the target is below the current view
+                    const rect = targetElement.getBoundingClientRect();
+                    if (rect.top > window.innerHeight || rect.bottom < 0) {
+                        scrollToTopBtn.classList.add('show');
+                    }
+                }
+            });
         });
     </script>
 </body>
