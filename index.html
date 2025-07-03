@@ -100,6 +100,30 @@
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
         }
+
+        /* Styles for Go Top Page button */
+        #goToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #3b82f6; /* Blue background */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Space between text and icon */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+        }
+        #goToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
     </style>
 </head>
 <body class="antialiased">
