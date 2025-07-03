@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate-key="pageTitle">My Business Name - Official Website</title>
+    <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -66,7 +66,7 @@
             display: inline-block;
         }
         .language-dropdown-content {
-            display: none;
+            display: block; /* Always block, control visibility with opacity/max-height */
             position: absolute;
             background-color: #f9f9f9;
             min-width: 120px;
@@ -77,6 +77,13 @@
             top: 100%; /* Position below the button */
             margin-top: 0.5rem;
             overflow: hidden; /* Ensures rounded corners apply to children */
+            max-height: 0; /* Start hidden for slide effect */
+            opacity: 0; /* Start invisible for fade effect */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Transition properties */
+        }
+        .language-dropdown-content.show {
+            max-height: 200px; /* Sufficient height to show content */
+            opacity: 1;
         }
         .language-dropdown-content button {
             color: black;
@@ -92,9 +99,6 @@
         }
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
-        }
-        .language-dropdown-content.show {
-            display: block;
         }
     </style>
 </head>
@@ -112,16 +116,13 @@
                 </ul>
                 <!-- Language Selector -->
                 <div class="language-dropdown">
-                    <button id="languageButton" class="btn-primary flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l-6-6m0 0l6-6m-6 6h18" />
-                        </svg>
-                        <span data-translate-key="languageBtnText">Language</span>
+                    <button id="languageButton" class="btn-primary flex items-center justify-center p-2 text-sm font-semibold w-12 h-10">
+                        <span id="currentLangDisplay">EN</span>
                     </button>
                     <div id="languageDropdownContent" class="language-dropdown-content">
-                        <button data-lang="en">English</button>
-                        <button data-lang="sq">Shqip (Albanian)</button>
-                        <button data-lang="mk">Македонски (Macedonian)</button>
+                        <button data-lang="en">EN</button>
+                        <button data-lang="sq">AL</button>
+                        <button data-lang="mk">MK</button>
                     </div>
                 </div>
             </nav>
@@ -212,7 +213,7 @@
             <p data-translate-key="footerCopyright">&copy; 2025 Your Business Name. All rights reserved.</p>
             <p class="mt-2">
                 <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerPrivacy">Privacy Policy</a> |
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerTerms">Terms of Service</a>
+                <a href="#" class="text-400 hover:text-white transition duration-300" data-translate-key="footerTerms">Terms of Service</a>
             </p>
         </div>
     </footer>
@@ -224,6 +225,7 @@
         const languageButton = document.getElementById('languageButton');
         const languageDropdownContent = document.getElementById('languageDropdownContent');
         const translatableElements = document.querySelectorAll('[data-translate-key]');
+        const currentLangDisplay = document.getElementById('currentLangDisplay'); // New element to display current language code
 
         // Define translations for each language
         const translations = {
@@ -233,7 +235,6 @@
                 navAbout: 'About Us',
                 navServices: 'Services',
                 navContact: 'Contact',
-                languageBtnText: 'Language',
                 heroWelcome: 'Welcome to Your Business Name',
                 heroTagline: 'Providing exceptional solutions for your needs.',
                 heroButton: 'Get a Free Quote',
@@ -265,7 +266,6 @@
                 navAbout: 'Rreth Nesh',
                 navServices: 'Shërbimet',
                 navContact: 'Kontakti',
-                languageBtnText: 'Gjuha',
                 heroWelcome: 'Mirësevini në Emrin e Biznesit Tuaj',
                 heroTagline: 'Ofrimi i zgjidhjeve të jashtëzakonshme për nevojat tuaja.',
                 heroButton: 'Merrni një Ofertë Falas',
@@ -297,7 +297,6 @@
                 navAbout: 'За нас',
                 navServices: 'Услуги',
                 navContact: 'Контакт',
-                languageBtnText: 'Јазик',
                 heroWelcome: 'Добредојдовте во Име на вашиот бизнис',
                 heroTagline: 'Обезбедување исклучителни решенија за вашите потреби.',
                 heroButton: 'Добијте бесплатна понуда',
@@ -333,10 +332,13 @@
             // Update the page title
             document.title = translations[lang].pageTitle;
 
+            // Update the text content of the language button
+            currentLangDisplay.textContent = lang.toUpperCase();
+
             translatableElements.forEach(element => {
                 const key = element.getAttribute('data-translate-key');
                 if (translations[lang][key]) {
-                    // Special handling for copyright symbol in footer
+                    // Special handling for copyright symbol in footer where innerHTML is needed
                     if (key === 'footerCopyright') {
                         element.innerHTML = translations[lang][key];
                     } else {
@@ -351,18 +353,15 @@
             }
         }
 
-        // Toggle language dropdown visibility
-        languageButton.addEventListener('click', function() {
-            languageDropdownContent.classList.toggle('show');
+        // Handle hover for language dropdown
+        const languageDropdown = document.querySelector('.language-dropdown'); // Get the parent container
+
+        languageDropdown.addEventListener('mouseover', function() {
+            languageDropdownContent.classList.add('show');
         });
 
-        // Close the dropdown if the user clicks outside of it
-        window.addEventListener('click', function(event) {
-            if (!event.target.matches('#languageButton') && !event.target.closest('.language-dropdown')) {
-                if (languageDropdownContent.classList.contains('show')) {
-                    languageDropdownContent.classList.remove('show');
-                }
-            }
+        languageDropdown.addEventListener('mouseout', function() {
+            languageDropdownContent.classList.remove('show');
         });
 
         // Add event listeners to language selection buttons
@@ -370,7 +369,7 @@
             button.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 setLanguage(lang);
-                languageDropdownContent.classList.remove('show'); // Hide dropdown after selection
+                // No need to hide dropdown on click, mouseout will handle it when cursor leaves
             });
         });
 
