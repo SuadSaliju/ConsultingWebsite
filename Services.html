@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate-key="pageTitle">Your Business Name - Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Copy relevant styles from your main file */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #334155;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .section-title {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-sm py-4">
+        <div class="container flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Logo1.png" alt="Your Business Logo" class="h-30 w-auto mr-6">
+                <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
+            </div>
+            <nav class="flex items-center space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="about.html" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navAbout">About Us</a></li>
+                    <li><a href="services.html" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navServices">Services</a></li>
+                    <li><a href="contact.html" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navContact">Contact</a></li>
+                </ul>
+                <div class="language-dropdown">
+                    <button id="languageButton" class="btn-primary flex items-center justify-center p-2 text-sm font-semibold w-12 h-10">
+                        <span id="currentLangDisplay">EN</span>
+                    </button>
+                    <div id="languageDropdownContent" class="language-dropdown-content">
+                        <button data-lang="en">EN</button>
+                        <button data-lang="sq">AL</button>
+                        <button data-lang="mk">MK</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="services" class="py-12 bg-gray-50">
+        <div class="container card">
+            <h3 class="text-3xl font-bold section-title mb-6" data-translate-key="servicesTitle">Our Services</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service1Title">Service Title 1</h4>
+                    <p class="text-gray-600" data-translate-key="service1Desc">A brief description of your first service. Highlight its benefits and what it offers to your clients.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service2Title">Service Title 2</h4>
+                    <p class="text-gray-600" data-translate-key="service2Desc">Another brief description of your second service. Explain how it solves a problem or adds value.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3" data-translate-key="service3Title">Service Title 3</h4>
+                    <p class="text-gray-600" data-translate-key="service3Desc">Description of your third service. Keep it concise and engaging for potential customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 mt-8 rounded-t-lg">
+        <div class="container text-center">
+            <p data-translate-key="footerCopyright">&copy; 2025 Your Business Name. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerPrivacy">Privacy Policy</a> |
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-translate-key="footerTerms">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Language translation script for this page
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdownContent = document.getElementById('languageDropdownContent');
+        const translatableElements = document.querySelectorAll('[data-translate-key]');
+        const currentLangDisplay = document.getElementById('currentLangDisplay');
+
+        const translations = {
+            en: {
+                pageTitle: 'Your Business Name - Services',
+                businessName: 'Your Business Name',
+                navAbout: 'About Us',
+                navServices: 'Services',
+                navContact: 'Contact',
+                servicesTitle: 'Our Services',
+                service1Title: 'Service Title 1',
+                service1Desc: 'A brief description of your first service. Highlight its benefits and what it offers to your clients.',
+                service2Title: 'Service Title 2',
+                service2Desc: 'Another brief description of your second service. Explain how it solves a problem or adds value.',
+                service3Title: 'Service Title 3',
+                service3Desc: 'Description of your third service. Keep it concise and engaging for potential customers.',
+                footerCopyright: '&copy; 2025 Your Business Name. All rights reserved.',
+                footerPrivacy: 'Privacy Policy',
+                footerTerms: 'Terms of Service'
+            },
+            sq: {
+                pageTitle: 'Emri i Biznesit Tuaj - Shërbimet',
+                businessName: 'Emri i Biznesit Tuaj',
+                navAbout: 'Rreth Nesh',
+                navServices: 'Shërbimet',
+                navContact: 'Kontakti',
+                servicesTitle: 'Shërbimet Tona',
+                service1Title: 'Titulli i Shërbimit 1',
+                service1Desc: 'Një përshkrim i shkurtër i shërbimit tuaj të parë. Theksoni përfitimet dhe çfarë u ofron klientëve tuaj.',
+                service2Title: 'Titulli i Shërbimit 2',
+                service2Desc: 'Një përshkrim tjetër i shkurtër i shërbimit tuaj të dytë. Shpjegoni si zgjidh një problem ose shton vlerë.',
+                service3Title: 'Titulli i Shërbimit 3',
+                service3Desc: 'Përshkrimi i shërbimit tuaj të tretë. Mbajeni të shkurtër dhe tërheqës për klientët potencialë.',
+                footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
+                footerPrivacy: 'Politika e Privatësisë',
+                footerTerms: 'Kushtet e Shërbimit'
+            },
+            mk: {
+                pageTitle: 'Име на вашиот бизнис - Услуги',
+                businessName: 'Име на вашиот бизнис',
+                navAbout: 'За нас',
+                navServices: 'Услуги',
+                navContact: 'Контакт',
+                servicesTitle: 'Нашите услуги',
+                service1Title: 'Наслов на услуга 1',
+                service1Desc: 'Краток опис на вашата прва услуга. Истакнете ги нејзините придобивки и што им нуди на вашите клиенти.',
+                service2Title: 'Наслов на услуга 2',
+                service2Desc: 'Уште еден краток опис на вашата втора услуга. Објаснете како решава проблем или додава вредност.',
+                service3Title: 'Наслов на услуга 3',
+                service3Desc: 'Опис на вашата трета услуга. Чувајте го концизно и привлечно за потенцијалните клиенти.',
+                footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
+                footerPrivacy: 'Политика за приватност',
+                footerTerms: 'Услови за користење'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang].pageTitle;
+            currentLangDisplay.textContent = lang.toUpperCase();
+
+            translatableElements.forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (translations[lang][key]) {
+                    if (key === 'footerCopyright') {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        languageDropdown.addEventListener('mouseover', function() {
+            languageDropdownContent.classList.add('show');
+        });
+
+        languageDropdown.addEventListener('mouseout', function() {
+            languageDropdownContent.classList.remove('show');
+        });
+
+        languageDropdownContent.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+        });
+    </script>
+</body>
+</html>
