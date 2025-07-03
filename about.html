@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate-key="pageTitle">Your Business Name - About Us</title>
+    <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles for better readability and aesthetics */
@@ -106,14 +106,14 @@
     <header class="bg-white shadow-sm py-4">
         <div class="container flex justify-between items-center">
             <div class="flex items-center">
-                <img src="Logo1.png" alt="Your Business Logo" class="h-30 w-auto mr-6">
+                <img src="Logo1.png" alt="Your Business Logo" class="h-10 w-auto mr-3 rounded-md">
                 <h1 class="text-2xl font-bold text-gray-800 rounded-lg p-2" data-translate-key="businessName">Your Business Name</h1>
             </div>
             <nav class="flex items-center space-x-4">
                 <ul class="flex space-x-4">
-                    <li><a href="about.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navAbout">About Us</a></li>
-                    <li><a href="services.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navServices">Services</a></li>
-                    <li><a href="contact.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navContact">Contact</a></li>
+                    <li><a href="About.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navAbout">About Us</a></li>
+                    <li><a href="Services.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navServices">Services</a></li>
+                    <li><a href="Contact.html" class="text-gray-600 hover:text-blue-600 transition duration-300 rounded-md p-2" data-translate-key="navContact">Contact</a></li>
                 </ul>
                 <div class="language-dropdown">
                     <button id="languageButton" class="btn-primary flex items-center justify-center p-2 text-sm font-semibold w-12 h-10">
@@ -155,6 +155,7 @@
     </footer>
 
     <script>
+        // Language translation logic - same as in index.html
         const languageButton = document.getElementById('languageButton');
         const languageDropdownContent = document.getElementById('languageDropdownContent');
         const translatableElements = document.querySelectorAll('[data-translate-key]');
@@ -174,7 +175,7 @@
                 footerPrivacy: 'Privacy Policy',
                 footerTerms: 'Terms of Service'
             },
-            sq: {
+            sq: { // Albanian translations
                 pageTitle: 'Emri i Biznesit Tuaj - Rreth Nesh',
                 businessName: 'Emri i Biznesit Tuaj',
                 navAbout: 'Rreth Nesh',
@@ -187,7 +188,7 @@
                 footerPrivacy: 'Politika e Privatësisë',
                 footerTerms: 'Kushtet e Shërbimit'
             },
-            mk: {
+            mk: { // Macedonian translations
                 pageTitle: 'Име на вашиот бизнис - За нас',
                 businessName: 'Име на вашиот бизнис',
                 navAbout: 'За нас',
@@ -195,50 +196,4 @@
                 navContact: 'Контакт',
                 aboutTitle: 'За нашиот бизнис',
                 aboutParagraph1: 'Добредојдовте во [Име на вашиот бизнис]! Ние сме посветени на обезбедување висококвалитетни [Вашата индустрија/услуги] на нашите ценети клиенти. Со долгогодишно искуство во областа, нашиот тим е посветен на извонредност и задоволство на клиентите. Ние веруваме во градење силни односи и испорачување резултати што ги надминуваат очекувањата.',
-                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнисите со иновативни решенија" или "да обезбедиме сигурни услуги што го поедноставуваат вашиот живот"]. Се гордееме со нашиот [споменете ги клучните вредности, на пр., "интегритет, иновации и пристап ориентиран кон клиентите"].',
-                footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
-                footerPrivacy: 'Политика за приватност',
-                footerTerms: 'Услови за користење'
-            }
-        };
-
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.title = translations[lang].pageTitle;
-            currentLangDisplay.textContent = lang.toUpperCase();
-
-            translatableElements.forEach(element => {
-                const key = element.getAttribute('data-translate-key');
-                if (translations[lang][key]) {
-                    if (key === 'footerCopyright') {
-                        element.innerHTML = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-        }
-
-        const languageDropdown = document.querySelector('.language-dropdown');
-
-        languageDropdown.addEventListener('mouseover', function() {
-            languageDropdownContent.classList.add('show');
-        });
-
-        languageDropdown.addEventListener('mouseout', function() {
-            languageDropdownContent.classList.remove('show');
-        });
-
-        languageDropdownContent.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setLanguage('en');
-        });
-    </script>
-</body>
-</html>
+                aboutParagraph2: 'Нашата мисија е да [Вашата изјава за мисијата, на пр., "да ги зајакнеме бизнисите со иновативни
