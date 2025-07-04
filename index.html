@@ -12,6 +12,14 @@
             background-color: #f0f4f8; /* Light gray background */
             color: #334155; /* Darker text for contrast */
         }
+         /* Styling for the main header area */
+        .main-header {
+            width: 100%;
+            background-color: #f0f0f0; /* Example background for the header */
+            padding: 20px 0;
+            text-align: center;
+            /* Add your logo, company name, navigation etc. styles here */
+        }
         .container {
             max-width: 960px; /* Max width for content */
             margin: 0 auto; /* Center the container */
@@ -99,36 +107,34 @@
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
         }
-        /* Hero background image with overlay */
         .hero-section {
-            position: relative;
-            background-image: url('BackgroundImage.png'); /* Set your background image here */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding-top: 5rem; /* Adjust padding as needed */
-            padding-bottom: 5rem; /* Adjust padding as needed */
+            position: relative; /* Allows absolute positioning of text on top */
+            width: 100%;
+            height: 33.33vh; /* One-third of the viewport height */
+            overflow: hidden; /* Ensures image doesn't overflow its container */
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-section img {
             width: 100%;
             height: 100%;
-            background-color: rgba(59, 130, 246, 0.7); /* Blue overlay with 70% opacity */
-            transition: background-color 0.5s ease-in-out; /* Smooth transition for overlay */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            opacity: 0.7; /* 70% transparency */
+            position: absolute; /* Position the image within the hero section */
+            top: 0;
+            left: 0;
         }
 
-        .hero-section:hover .hero-overlay {
-            background-color: rgba(59, 130, 246, 0.3); /* Lighter blue on hover for 30% opacity */
-        }
-
-        .hero-content {
-            position: relative; /* Bring content above the overlay */
-            z-index: 10; /* Ensure content is on top */
-            color: white;
+        .hero-text {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for perfect centering */
+            color: white; /* Text color on top of the image */
+            font-size: 2em; /* Example font size */
+            font-weight: bold;
             text-align: center;
+            z-index: 1; /* Ensures text is above the image */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional text shadow for readability */
         }
         /* Styles for "Go Top Page" button */
         .scroll-to-top {
