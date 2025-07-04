@@ -99,10 +99,10 @@
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
         }
+
         /* Hero background image with overlay */
         .hero-section {
             position: relative;
-            background-image: url('BackgroundImage.png'); /* Set your background image here */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -130,6 +130,7 @@
             color: white;
             text-align: center;
         }
+
         /* Styles for "Go Top Page" button */
         .scroll-to-top {
             position: fixed;
@@ -183,8 +184,9 @@
         </div>
     </header>
 
-    <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 text-center rounded-b-lg mb-8">
-        <div class="container">
+    <section class="hero-section rounded-b-lg mb-8">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
             <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-translate-key="heroWelcome">Welcome to Your Business Name</h2>
             <p class="text-lg md:text-xl mb-8" data-translate-key="heroTagline">Providing exceptional solutions for your needs.</p>
             <a href="#contact" class="btn-primary inline-block text-lg font-semibold shadow-lg hover:shadow-xl" data-translate-key="heroButton">Get a Free Quote</a>
@@ -432,6 +434,11 @@
         // Set default language on page load
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage('en'); // Default to English
+
+            // Initialize the hero background image on DOMContentLoaded
+            const heroSection = document.querySelector('.hero-section');
+            const githubImagePath = 'https://raw.githubusercontent.com/username/repository/branch/path/to/BackgroundImage.png'; // *** IMPORTANT: Replace with your actual GitHub raw image URL ***
+            heroSection.style.backgroundImage = `url('${githubImagePath}')`;
         });
 
 
