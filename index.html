@@ -99,19 +99,37 @@
         .language-dropdown-content button:hover {
             background-color: #e2e8f0; /* Light gray on hover */
         }
-
-        /* Styles for hero background image overlay */
-        .hero-bg-overlay {
-            background-image: url('BackgroundImage.png');
-            background-size: cover; /* Ensure the image covers the entire area */
-            background-position: center; /* Center the background image */
-            opacity: 0.3; /* Initial opacity (70% transparent) */
-            transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
-        }
-        .hero-bg-overlay:hover {
-            opacity: 0.7; /* Increase opacity on hover to 70% (30% transparent - more accentuated) */
+        /* Hero background image with overlay */
+        .hero-section {
+            position: relative;
+            background-image: url('BackgroundImage.png'); /* Set your background image here */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 5rem; /* Adjust padding as needed */
+            padding-bottom: 5rem; /* Adjust padding as needed */
         }
 
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(59, 130, 246, 0.7); /* Blue overlay with 70% opacity */
+            transition: background-color 0.5s ease-in-out; /* Smooth transition for overlay */
+        }
+
+        .hero-section:hover .hero-overlay {
+            background-color: rgba(59, 130, 246, 0.3); /* Lighter blue on hover for 30% opacity */
+        }
+
+        .hero-content {
+            position: relative; /* Bring content above the overlay */
+            z-index: 10; /* Ensure content is on top */
+            color: white;
+            text-align: center;
+        }
         /* Styles for "Go Top Page" button */
         .scroll-to-top {
             position: fixed;
