@@ -6,6 +6,7 @@
     <title data-translate-key="pageTitle">Your Business Name - Official Website</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles for better readability and aesthetics */
         body {
@@ -300,6 +301,10 @@
         </div>
     </footer>
 
+     <a href="#" id="scrollToTopBtn" class="scroll-to-top" data-translate-key="goTopPage">
+        <i class="fas fa-arrow-up mr-2"></i> <span data-translate-key="goTopPageText">Go Top Page</span>
+    </a>
+
     <script>
         // Get the contact form and message box elements
         const contactForm = document.getElementById('contactForm');
@@ -343,7 +348,9 @@
                 formEmptyFields: 'Please fill in all fields.',
                 footerCopyright: '&copy; 2025 Your Business Name. All rights reserved.',
                 footerPrivacy: 'Privacy Policy',
-                footerTerms: 'Terms of Service'
+                footerTerms: 'Terms of Service',
+                goTopPage: 'Go Top Page',
+                goTopPageText: 'Go Top Page'
             },
             sq: { // Albanian translations
                 pageTitle: 'Emri i Biznesit Tuaj - Faqja Zyrtare',
@@ -377,7 +384,9 @@
                 formEmptyFields: 'Ju lutemi plotësoni të gjitha fushat.',
                 footerCopyright: '&copy; 2025 Emri i Biznesit Tuaj. Të gjitha të drejtat e rezervuara.',
                 footerPrivacy: 'Politika e Privatësisë',
-                footerTerms: 'Kushtet e Shërbimit'
+                footerTerms: 'Kushtet e Shërbimit',
+                goTopPage: 'Kthehu lart',
+                goTopPageText: 'Kthehu lart'
             },
             mk: { // Macedonian translations
                 pageTitle: 'Име на вашиот бизнис - Официјална веб-страница',
@@ -411,7 +420,9 @@
                 formEmptyFields: 'Ве молиме пополнете ги сите полиња.',
                 footerCopyright: '&copy; 2025 Име на вашиот бизнис. Сите права задржани.',
                 footerPrivacy: 'Политика за приватност',
-                footerTerms: 'Услови за користење'
+                footerTerms: 'Услови за користење',
+                goTopPage: 'Оди на врвот',
+                goTopPageText: 'Оди на врвот'
             }
         };
 
